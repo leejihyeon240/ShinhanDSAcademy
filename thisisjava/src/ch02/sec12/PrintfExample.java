@@ -6,7 +6,7 @@ public class PrintfExample {
 		int value = 123;
 		System.out.printf("상품의 가격:%d원\n", value);
 		System.out.printf("상품의 가격:%6d원\n", value);
-		System.out.printf("상품의 가격:%d-6원\n", value);
+		System.out.printf("상품의 가격:%-6d원\n", value);
 		System.out.printf("상품의 가격:%06d원\n", value);
 
 		double area = 3.14159 * 10 * 10;
