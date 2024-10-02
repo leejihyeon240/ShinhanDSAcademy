@@ -17,7 +17,7 @@ public class Ex7 {
 			System.out.print("선택> ");
 			String number = scanner.nextLine();
 
-			if ("1".equals(number)) { // NULL 방지 에러 방지
+			if ("1".equals(number)) { // NULL 방지 에러 방지  
 				System.out.print("예금액> ");
 				String money = scanner.nextLine();
 				accout += Integer.parseInt(money);
