@@ -41,7 +41,7 @@ public class IndexOfContainsExample {
 		System.out.println(filename);
 		
 		String filename2 = "2024.10.02_이력서.docx";
-		filename = System.currentTimeMillis() + filename.substring(filename.lastIndexOf("."));
+		filename2 = System.currentTimeMillis() + filename.substring(filename.lastIndexOf("."));
 		
 	}
 
