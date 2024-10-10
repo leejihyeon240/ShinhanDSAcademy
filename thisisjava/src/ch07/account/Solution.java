@@ -18,7 +18,7 @@ public class Solution {
                 }
                 
             } else { // 입금
-                account += ledger[i];
+                account += ledger[i];                                                                                                                                                                                                                                
                 System.out.println(ledger[i] + "원 입금 완료 (" + "잔고액: " + account + ")");
             }
         }
@@ -29,11 +29,11 @@ public class Solution {
 	public static void main(String[] args) {
 		Solution s = new Solution();
 
-//		int m = 5000;
-//		int[] ledger = { 10000, -13000, -4000, -2000, 6500, -20000 };
+		int m = 5000;
+		int[] ledger = { 10000, -13000, -4000, -2000, 6500, -20000 };
 
-		int m = 34151;
-		int[] ledger = { -34152, -40000, -50000};
+//		int m = 34151;
+//		int[] ledger = { -34152, -40000, -50000};
 		
 		int result = s.solution(m, ledger);
 		System.out.println(result);
