@@ -1,3 +1,5 @@
+-- 문제 --
+
 select * from emp;
 /*
 어디에서 
