@@ -30,3 +30,33 @@ select
     *
 from emp 
 where comm is null and mgr is not null and job in('MAMNAGER','CLERK') and ename not like '_L%';
+
+--- 함수
+
+-- 6-1
+select ename, upper(ename), lower(ename), initcap(ename) from emp;
+
+-- Jones -> JONES like '%JON%'
+select * from emp where upper(ename) like upper('%jon%');
+
+-- 6-4
+select ename, length(ename) from emp;
+
+-- 6-5
+select ename, length(ename) from emp where length(ename) >= 5;
+
+-- 6-6
+select length('한글'), lengthb('한글') from dual;
+-- dual 더미
+select * from dual;
+
+-- 6-7
+select job, substr(job, 1, 2), substr(job, 3, 2), substr(job, 5), substr('안녕하세요', 1, 2) from emp;
+
+-- 6-8
+select job, substr(job, -length(job)), substr(job, -length(job), 2), substr(job, -3) from emp;
+
+select substr('abcde', -3, 1) from dual;
+
+-- 6-15
+select concat(empno, ename), concat(empno, concat(':', ename)) from emp where ename = 'SCOTT';
