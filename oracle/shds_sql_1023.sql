@@ -210,3 +210,55 @@ FROM
     emp
 GROUP BY
     deptno;
+    
+-- Q2
+SELECT
+    job,
+    COUNT(*)
+FROM
+    emp
+GROUP BY
+    job
+HAVING
+    COUNT(*) >= 3;
+    
+-- Q3
+SELECT
+    hiredate
+FROM
+    emp
+GROUP BY
+    hiredate;
+
+SELECT
+    substr(hiredate, 1, 2) hire_year,
+    deptno,
+    COUNT(*)               cnt
+FROM
+    emp
+GROUP BY
+    substr(hiredate, 1, 2),
+    deptno;
+    
+-- Q4
+SELECT
+    nvl2(comm, 'O', 'X') exsit_comm, count(*) cnt
+FROM
+    emp
+GROUP BY
+    nvl2(comm, 'O', 'X');
+    
+-- Q5
+SELECT
+    deptno,
+    substr(hiredate, 1, 4) hire_year,
+    COUNT(*) cnt,
+    MAX(sal) max_sal,
+    SUM(sal) sum_sal,
+    AVG(sal) avg_sal
+FROM
+    emp
+GROUP BY
+    ROLLUP(deptno,
+           substr(hiredate, 1, 4));
+           
