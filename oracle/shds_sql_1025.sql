@@ -340,3 +340,73 @@ SELECT
 FROM
     dept_temp2;
     
+-- 10-23
+delete from emp_temp2 where job='MANAGER';
+select * from emp_temp2;
+
+create table dept_tcl as select * from dept;
+select * from dept_tcl;
+
+delete from dept_tcl where deptno=40;
+select * from dept_tcl;
+
+rollback;
+
+delete from dept_tcl where deptno=40;
+select * from dept_tcl;
+
+commit;
+
+
+delete from dept_tcl;
+commit;
+
+
+delete from dept_tcl where deptno=20;
+update dept_tcl set loc='SEOUL' where deptno=30;
+
+commit;
+
+update dept_tcl set loc='SEOUL' where deptno=30;
+select * from dept_tcl;
+
+commit;
+
+CREATE TABLE "TESTUSER"."EMP_DDL" 
+   (	"EMPNO" NUMBER(4,0), 
+	"ENAME" VARCHAR2(10), 
+	"JOB" VARCHAR2(9), 
+	"MGR" NUMBER(4,0), 
+	"HIREDATE" DATE, 
+	"SAL" NUMBER(7,2), 
+	"COMM" NUMBER(7,2), 
+	"DEPTNO" NUMBER(2,0)
+);
+
+
+create table emp_alter as select * from emp;
+select * from emp_alter;
+
+alter table emp_alter add hp varchar2(20);
+alter table emp_alter rename column hp to tel;
+
+select * from dictionary;
+select * from user_tables;
+
+-- 인덱스
+-- 13-8
+select * from user_indexes;
+
+-- 13-10
+-- 생성 : create index 인덱스명 on 테이블명(컬럼명);
+create index idx_emp_sal on emp(sal);
+
+-- 실행계획
+explain plan for select * from emp where ename = 'JONES';
+select * from table(dbms_xplan.display);
+
+-- emp테이블의 ename컬럼에 인덱스 적용
+create index idx_emp_ename on emp(ename);
+
+
+select * from emp where empno = 7499;
