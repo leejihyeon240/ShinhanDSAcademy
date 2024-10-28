@@ -30,6 +30,7 @@ public class ConnectionExample {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} finally {
+			// 6. 자원해제(close)
 			if (rs != null)
 				try {
 					rs.close();
