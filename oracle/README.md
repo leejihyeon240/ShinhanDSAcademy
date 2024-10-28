@@ -73,3 +73,14 @@ SELECT 컬럼명 [as 별칭]... <br>
 
 도구 > 환경설정 > 'NLS' 검색 <br>
 날짜 형식 -> YYYY- MM- DD <br>
+
+DDL (Definition) <br>
+- create : 생성 <br>
+- alter : 변경 <br>
+- truncate : 테이블의 데이터 삭제(초기화) <br>
+- drop : 삭제 <br>
+
+index <br>
+- 검색속도를 향상시키기 위해 사용하는 객체 <br>
+- 데이터를 특정 기준(컬럼)으로 정렬해서 별도의 테이블 생성 <br>
+- b-tree알고리즘 사용 <br>
