@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="lib/lombok-1.18.34.jar"/>
 	<classpathentry kind="lib" path="C:/Users/User/Downloads/json-20240303.jar"/>
 	<classpathentry kind="lib" path="D:/java/ojdbc10-19.24.0.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk17"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

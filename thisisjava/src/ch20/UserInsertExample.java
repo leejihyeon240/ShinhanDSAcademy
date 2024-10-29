@@ -20,7 +20,7 @@ public class UserInsertExample {
 					"testuser", 
 					"test1234");
 			// 3. SQL 실행할 객체(Statement) 생성
-			pstmt = conn.prepareStatement("INSERT INTO users(userid, username, userpassword, userage, useremail) VALUES (?,?,?,?,?)");
+			pstmt = conn.prepareStatement("INSERT into users(userid, username, userpassword, userage, useremail) VALUES (?,?,?,?,?)");
 			pstmt.setString(1, "winter");
 			pstmt.setString(2, "한겨울");
 			pstmt.setString(3, "12345");
