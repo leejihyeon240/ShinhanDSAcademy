@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" action="insert.jsp">
+        아이디 : <input type="text" name="id" value="hong" readonly="readonly"> <br>
+        비밀번호 : <input type="password" name="pwd" autofocus required> <br>
+        이름 : <input type="text" name="name" value="홍길동" disabled="disabled"> <br>
+        이메일 : <input type="email" name="email" maxlength="10" placeholder="이메일을 입력해 주세요"> <br>
+        성별 : <input type="radio" name="gender" checked> 여자 <input type="radio" name="gender"> 남자 <br>
+        취미 : <input type="checkbox" name="hobby" value="1"> 독서
+        <input type="checkbox" name="hobby" value="2"> 게임
+        <input type="checkbox" name="hobby" value="3"> 영화 <br>
+
+        <input type="submit" value="로그인">
+        <input type="reset" value="초기화">
+        <input type="image" src="images/google.png"><br>
+        <input type="button" value="버튼">
+        <button>버튼2</button>
+        <input type="file" name="filename">
+        <input type="hidden" name="no" value="1"><br>
+
+        자기소개 : <textarea name="introduce" rows="5">안녕하세요</textarea> <br>
+        최종학력 :
+        <select name="school" multiple>
+            <option value="1">대학원이상</option>
+            <option value="2" selected>대학교</option>
+            <option value="3">고등학교</option>
+        </select>
+    </form>
+</body>
+
+</html>
