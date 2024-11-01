@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1,
+    p,
+    span {
+        background-color: black;
+    }
+
+    h1 {
+        font-size: 180px;
+        color: white;
+        text-align: center;
+    }
+
+    span {
+        font-size: 180px;
+        color: white;
+        text-align: center;
+    }
+
+    p {
+        font-size: 100px;
+        color: white;
+        height: 200px;
+        line-height: 200px;
+        /* height와 동일한 값으로 지정하여 가운데(높이) 정렬 효과 */
+    }
+
+    #over {
+        border: 1px solid #000;
+        /* 내용이 길어져도 줄바꿈이 안 되게 */
+        width: 200px;
+        /* 영역보다 넘치면 숨김 */
+        overflow: hidden;
+        /* 넘치면 ... 표시 */
+        text-overflow: ellipsis;
+    }
+</style>
+
+<body>
+    <h1>제목</h1>
+    <p>내용</p>
+    <span>내용</span>
+    <div style="text-decoration: underline;">안녕하세요</div>
+    <div><a href="font.html" style="text-decoration: none;">링크 이동</a></div>
+    <div id="over">안녕하세요. 저는 홍길동이입니다.</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 10px solid #000;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .div1 {
+            background-color: red;
+            box-sizing: content-box;
+            /* border-width: 0 0 0 0px; */
+            border-style: dashed;
+        }
+
+        .div2 {
+            background-color: yellow;
+            box-sizing: border-box;
+            /*컨텐트 + 패딩 + 보더 */
+        }
+
+        .div3 {
+            background-color: blue;
+            border-width: 0 0 0 0px;
+            padding: 0px;
+            border-radius: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+</body>
+
+</html>

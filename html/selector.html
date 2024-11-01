@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            color: blue;
+        }
+        #p {
+            color: red;
+        }
+        #content {
+            color: gray;
+        }
+        .content2{
+            color: yellow;
+        }
+        input[type='text'] {
+            background-color: pink;
+        }
+        input[type='password'] {
+            background-color: brown;
+        }
+        h2, div{
+            color: red;
+        }
+        /* 자식 선택자 */
+        h3 > div {
+            color: violet;
+        }
+        /* 자손 선택자 */
+        h3 div {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+    <h1>제목</h1>
+    <p>본문</p>
+    <p id="content">본문</p>
+    <p id="content">본문</p>
+    <p class="content2">본문</p>
+    <p class="content2">본문</p>
+    <div class="content2">본문2</div>
+    <input type="text"><br>
+    <input type="password"><br>
+    <h2>제목2</h2>
+    <div>본문</div>
+    <h3>제목3<div>입니다.</div><span><div>감사합니다.</div></span></h3>
+</body>
+</html>
