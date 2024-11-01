@@ -69,3 +69,76 @@ FROM
     JOIN item i ON o.item_id = i.item_id
 GROUP BY
     1;
+    
+-- 04. 상품별 매출 분석
+SELECT
+    o.item_id,
+    i.product_name,
+    SUM(sales) 매출합계
+FROM
+         order_info o
+    JOIN item i ON o.item_id = i.item_id
+GROUP BY
+    o.item_id,
+    i.product_name
+ORDER BY
+    SUM(sales) DESC;
+    
+-- 05. 월별 상품 매출 분석(시계열 분석)
+SELECT
+    *
+FROM
+         order_info o
+    JOIN item i ON o.item_id = i.item_id;
+
+SELECT * 
+FROM (
+    SELECT i.product_name, o.sales, o.reserv_no
+    FROM order_info o
+    JOIN item i ON o.item_id = i.item_id
+)
+PIVOT (
+    SUM(sales) FOR product_name IN ('SPECIAL_SET' AS SPECIAL_SET, 'PASTA' AS PASTA, 'PIZZA' AS PIZZA, 'SEA_FOOD' as SEA_FOOD, 'STEAK' as STEAK, 'SALAD_BAR' as SALAD_BAR, 'SALAD' as SALAD, 'SANDWITCH' as SANDWITCH, 'WINE' as WINE, 'JUICE' as JUICE)
+)
+JOIN reservation r on p.reserv_no = r.reserv_no;
+
+WITH pivoted_sales AS (
+    SELECT * 
+    FROM (
+        SELECT o.reserv_no, i.product_name, o.sales
+        FROM order_info o
+        JOIN item i ON o.item_id = i.item_id
+    ) 
+    PIVOT (
+        SUM(sales) FOR product_name IN (
+            'SPECIAL_SET' AS SPECIAL_SET, 
+            'PASTA' AS PASTA, 
+            'PIZZA' AS PIZZA, 
+            'SEA_FOOD' AS SEA_FOOD, 
+            'STEAK' AS STEAK, 
+            'SALAD_BAR' AS SALAD_BAR, 
+            'SALAD' AS SALAD, 
+            'SANDWITCH' AS SANDWITCH, 
+            'WINE' AS WINE, 
+            'JUICE' AS JUICE
+        )
+    )
+)
+SELECT 
+    TO_CHAR(r.reserv_date, 'YYYY-MM') AS month,
+    SUM(p.SPECIAL_SET) AS SPECIAL_SET,
+    SUM(p.PASTA) AS PASTA,
+    SUM(p.PIZZA) AS PIZZA,
+    SUM(p.SEA_FOOD) AS SEA_FOOD,
+    SUM(p.STEAK) AS STEAK,
+    SUM(p.SALAD_BAR) AS SALAD_BAR,
+    SUM(p.SALAD) AS SALAD,
+    SUM(p.SANDWITCH) AS SANDWITCH,
+    SUM(p.WINE) AS WINE,
+    SUM(p.JUICE) AS JUICE
+FROM pivoted_sales p
+JOIN reservation r ON p.reserv_no = r.reserv_no
+GROUP BY 
+    TO_CHAR(r.reserv_date, 'YYYY-MM')
+ORDER BY 
+    month;
