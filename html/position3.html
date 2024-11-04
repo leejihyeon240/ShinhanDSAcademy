@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 500px;
+            height: 500px;
+            background-color: red; 
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            /*
+            left : 부모 넓이/2 - 자식 넓이/2
+            top : 부모 높이/2 - 자식 높이/2
+            */ 
+            left: 200px;
+            top: 200px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+</body>
+</html>

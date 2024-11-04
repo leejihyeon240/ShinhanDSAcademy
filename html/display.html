@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav>ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    nav ul li {
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 10px;
+        border: 1px solid #222;
+        display: inline-block;
+    }
+
+    #ds {
+        color: blue;
+        background-color: yellow;
+        width: 200px;
+        height: 100px;
+        display: inline; /* 글씨에 맞게 */
+        /* display: inline-block; */
+    }
+
+    #menu {
+        display: none;
+        /* visibility: hidden; 영역이 남아있음 */
+    }
+</style>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="">메뉴 1</a></li>
+            <li><a href="">메뉴 2</a></li>
+            <li id="menu"><a href="">메뉴 3</a></li>
+            <li><a href="">메뉴 4</a></li>
+        </ul>
+    </nav>
+    안녕하세요 저는 <span id="ds">신한DS</span> 아카데미 수강생입니다.
+</body>
+
+</html>
