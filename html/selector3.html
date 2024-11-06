@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 순서(동일한 타입) 가상 선택자 */
+        div:nth-child(3) {
+            color: red;
+        }
+
+        div:nth-of-type(2) {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <p>1등</p>
+    <p>2등</p>
+    <div>3등</div>
+    <p>4등</p>
+    <div>5등</div>
+</body>
+
+</html>

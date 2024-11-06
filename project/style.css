@@ -26,3 +26,37 @@ nav {
     align-items: center;
     padding: 10px 0;
 }
+
+/* .lang {...} */
+.lang i:nth-child(1) {
+    margin-right: 8px;
+}
+.lang i:nth-child(2) {
+    margin-left: 5px;
+}
+
+.add-email {
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.add-email input {
+    border: 0;
+    outline: 0;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.add-email button {
+    border: 0;
+    background-color: #db0001;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 30px;
+    /* 마우스 커서 모양 pointer */
+    cursor: pointer;
+}
