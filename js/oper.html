@@ -1,0 +1,29 @@
+<script>
+    // 증감연산
+    // 전위연산 : 실행문 실행되기 전
+    // 후위연산 : 실행문 실행된 후
+    let a = 1;
+    let b = ++a; // 1+1 후에 대입
+    let c = b++; // 대입 후에 2+1
+
+    console.log(a);
+    console.log(b, c);
+
+    // 비교연산
+    // === : 값도 같아야 되고, 타입도 같아야 true
+    if (c == '3') {
+        console.log(true);
+    }
+
+    // 문자열비겨
+    let name1 = '홍길동';
+    let name2 = '홍길동';
+    if (name1 !== name2) {
+        console.log(true);
+    }
+
+    // 삼항연산
+    let result = name1 === name2 ? 'SUCCESS' : 'FAIL';
+    console.log(result);
+
+</script>
