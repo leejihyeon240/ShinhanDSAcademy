@@ -10,6 +10,21 @@ body {
     /* 글꼴 색 */
 }
 
+section {
+    padding: 40px 10%;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+section h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
 /* ---- 헤더 영역 --- */
 header {
     width: 100%;
@@ -31,6 +46,7 @@ nav {
 .lang i:nth-child(1) {
     margin-right: 8px;
 }
+
 .lang i:nth-child(2) {
     margin-left: 5px;
 }
@@ -59,4 +75,37 @@ nav {
     padding: 15px 30px;
     /* 마우스 커서 모양 pointer */
     cursor: pointer;
+}
+
+/* ---- 반응형 (헤더) ---- */
+@media only screen and (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav button {
+        padding: 5px 10px;
+    }
+
+    .lang {
+        padding: 4px 8px;
+    }
+
+    .header-content {
+        width: 90%;
+    }
+
+    .header-content h2 {
+        font-size: 48px;
+        line-height: 50px;
+    }
+
+    .header-content h3 {
+        font-size: 20px;
+    }
+
+    .add-email button {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
 }

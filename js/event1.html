@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function clickEvent() {
+            alert('버튼 클릭');
+        }
+
+        // 문서가 로드가 끝나면 실행
+        window.onload = function () {
+            let orange = document.querySelector('#orange');
+            // orange.onclick= clickEvent;
+
+            // orange.onclick = function() {
+            //     alert('익명 함수로 클릭');
+            // };
+
+            orange.onclick = () => {
+                alert('화살표 함수로 클릭');
+            };
+
+            let purple = document.querySelector('#purple');
+
+            purple.addEventListener('click', () => {
+                alert('화살표 함수로 클릭');
+            });
+
+            purple.addEventListener('click', () => {
+                alert('화살표 함수로 클릭2');
+            });
+
+            // 기본 이벤트 제거
+            // a태그의 기본이벤트는 href 속성의 값으로 이동
+            let naver = document.getElementById('naver');
+            naver.onclick = function (e) {
+                alert('네이버로 이동');
+                e.preventDefault(); // 기본 이벤트 제거
+            }
+            document.getElementById('span2').onclick = function(e) {
+                alert('이벤트');
+                e.stopPropagation(); // 이벤트 전파 중단
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <ul>
+        <!-- javascript:; 또는 #; 사용 => 사용자의 불편함 최소화  -->
+        <li><a href="javascript:;" id="purple">pulple</a></li>
+        <!-- # 는 맨 위로 올라가서 쓰면 안 됨 -->
+        <li><a href="#" onclick="alert('버튼을 클릭했습니다.')">orange</a></li>
+        <li><a href="#;" id="orange">orange</a></li>
+        <li><a href="#;" onmouseover="console.log(1);">green</a></li>
+    </ul>
+    <hr>
+    <a href="http://naver.com" id="naver">네이버</a>
+    <hr>
+    <div onclick="alert('div1');">
+        <div onclick="alert('div2');">
+            <span onclick="alert('span1');">
+                <span onclick="alert('span2');" id="span2">
+                    이벤트 전파
+                </span>
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>
