@@ -1,0 +1,94 @@
+<script>
+    let book = {
+        title: '자바',
+        pages: 500,
+        buy: function () {
+            console.log('구입');
+        }
+    };
+
+    console.log(typeof book);
+
+    // 제목 출력
+    console.log(book.title);
+    console.log(book['title']);
+
+    // 함수 실행
+    book.buy();
+
+    book.auther = '홍길동'; // 속성 추가
+    console.log(book);
+
+    delete (book.pages); // 속성 삭제
+    console.log(book);
+
+    // 생성자 함수
+    function Calculate(x, y) {
+        this.x2 = x;
+        this.y2 = y;
+
+        this.add = function () {
+            return this.x2 + this.y2;
+        }
+    }
+
+    let calc = new Calculate(1, 2);
+    console.log(typeof calc);
+    console.log(calc.add());
+
+    // 클래스 (ES6 이후 추가된 것, 옛날에는 없었음)
+    class Calculate2 {
+
+        // 생성자
+        constructor(x, y) {
+            this.x2 = x;
+            this.y2 = y;
+        }
+
+        add() {
+            return this.x2 + this.y2;
+        }
+    }
+
+    let cal2 = new Calculate2(1, 2);
+    console.log(typeof cal2);
+    console.log(calc.add());
+
+    // 내장객체
+    let d = new Date();
+    console.log(typeof d);
+    console.log(d);
+
+    // 배열
+    // 추가
+    let arr = new Array();
+    for (let i = 1; i <= 10; i++) {
+        arr.push(i);
+    }
+
+    arr.push('홍길동');
+    arr.push([1, 2, 3]);
+    arr.push(calc);
+    console.log(arr);
+
+    // 반복
+    arr.forEach(function (v, i) {
+        console.log(i + ':' + v);
+    });
+
+    let now = new Date();
+    let firstDay = new Date("2025-03-25");
+
+    let toNow = now.getTime();
+    let toFirstDay = firstDay.getTime();
+
+    let passedTime = toFirstDay - toNow;
+    passedTime = Math.round(passedTime / (1000 * 60 * 60 * 24));
+
+    window.onload = function () {
+        document.querySelector('#close').addEventListener('click', function () {
+            window.close();
+        });
+    };
+</script>
+<h1 id="close">팝업창</h1>
