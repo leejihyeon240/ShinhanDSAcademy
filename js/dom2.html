@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            // console.log(document.querySelectorAll('li'));
+            let newItem = document.createElement('li');
+            let textNode = document.createTextNode('Typescript');
+            newItem.appendChild(textNode);
+            document.querySelector("#itemList").appendChild(newItem);
+
+            // 이미지 추가
+            let newImg = document.createElement('img');
+            newImg.src = 'images/cup-1.jpg';
+            document.body.appendChild(newImg);
+        }
+    </script>
+</head>
+<body>
+    <h1>Web Programming</h1>
+    <ul id="itemList">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+</body>
+</html>
