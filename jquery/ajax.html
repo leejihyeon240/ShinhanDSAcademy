@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        // let req = new XMLHttpRequest();
+
+        // req.open('get', 'https://jsonplaceholder.typicode.com/posts');
+
+        // req.send();
+
+        // XMLHttpRequest가 비동기적으로 작동
+        // 요청을 보내고 즉시 응답을 기다리지 않고 다음 코드로 넘어가기 때문에
+        // 데이터가 다 도착하기 전에 req.response에 접근하려고 하면 아직 응답이 오지 않았을 수 있음
+        // 응답이 완전히 도착했을 때(readyState == 4)만 req.response를 출력하도록 해주어야 정상적으로 데이터가 출력됨
+        // req.onreadystatechange = function () {
+        //     if (this.readyState == 4) {
+
+        //         console.log(req.response);
+
+        //     }
+        // };
+
+        $.ajax({
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            method: 'get',
+            async: true, // 비동기 여부
+            cache: false, // 캐시 사용 여부
+            dataType: 'JSON', // 응답 받은 데이터(JSON, HTML)
+            success: function (res) { // 응답이 성공하면
+                console.log(res);
+                res.forEach((v, i) => {
+                    console.log(v['title']);
+                    $("table").append("<tr><td>" + v['title'] + "</td></tr");
+                });
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

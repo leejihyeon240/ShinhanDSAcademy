@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            /* display: none; */
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                // $("#div1").hide(); // display:none
+                // $("#div1").show();
+                // $("#div1").toggle(5000, function() {
+                //     alert('완료');
+                // });
+
+                // 슬라이드
+                // $("#div1").slideDown(1000); // 없다가 내려오면서 나와
+                // $("#div1").slideUp(1000); // 있다가 올라가면서 사라져
+                // $("#div1").slideToggle(1000); 
+
+                // $("#div1").fadeOut(1000);
+
+                // animate()
+                // $("#div1").animate({ left: 500 }, 2000).animate({ top: 500 }, 2000);
+                // $("#div1").animate({ width: '+=50', height: '+=50' }, 500);
+                setInterval(function () {
+                    $("#div1").animate({ width: '+=50', height: '+=50' }, 500);
+                }, 1000);
+            });
+
+            
+        })
+    </script>
+
+</head>
+
+<body>
+    <button id="btn">버튼</button>
+    <hr>
+    <div id="div1">
+
+    </div>
+</body>
+
+</html>

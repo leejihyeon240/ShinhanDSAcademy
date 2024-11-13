@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        // DOM 로드 완료 후
+        $(document).ready(function () {
+            console.log(1);
+        });
+        $(function () {
+            // $("#btn").on('click', function () {
+            //     alert('버튼');
+            // });
+            $(".btn").click(function () {
+                alert('버튼');
+            }).mouseover(() => {
+                alert('오버');
+            });
+            // $("#btn").off('click');
+            // $(".kor").val(212222);
+            // console.log($('.kor').val());
+
+            $("#calc").click(function() {
+                let kor = Number($(".kor").val());
+                let math = Number($(".math").val());
+                let eng = Number($(".eng").val());
+                let total = kor + math + eng;
+                $("#total").text(total);
+                $("#avg").text(total / 3);
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button class="btn">버튼1</button>
+    <button class="btn">버튼2</button>
+    <button class="btn">버튼3</button>
+    <button class="btn">버튼4</button>
+    <hr>
+    국어 : <input type="text" class="kor"><br>
+    수학 : <input type="text" class="math"><br>
+    영어 : <input type="text" class="eng"><br>
+    <button id="calc">합계</button>
+    총 : <span id="total"></span>점,
+    평균 <span id="avg"></span>점
+</body>
+
+</html>
