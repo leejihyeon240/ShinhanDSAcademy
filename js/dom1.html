@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading"><span>안녕하세요</span></h1>
+    <div class="name">홍길동</div>
+    <div class="name">최길동</div>
+    <div class="name">김길동</div>
+    <div id="greet"></div>
+
+    <img src="images/cup-1.jpg" id="cup">
+
+    <script>
+        console.log(document.getElementById('heading'));
+        console.log(document.getElementsByClassName('name'));
+
+        console.log(document.getElementById('heading').innerText); // 전체를 텍스트로
+        console.log(document.getElementById('heading').innerHTML); // 전체를 HTML로
+        console.log(document.getElementById('heading').textContent); // 텍스트만
+
+        // innerHTML은 b 태그가 먹음
+        document.getElementById('greet').innerHTML = '<b>반갑습니다.</b>';
+        document.getElementById('greet').setAttribute('style', 'color:red');
+        let style = document.getElementById('greet').getAttribute('style');
+        console.log(style);
+
+        document.querySelector("#cup").onclick = () => {
+            console.log(this);
+            document.querySelector("#cup").src = "images/cup-2.jpg"
+        };
+        // document.querySelector("#cup").onclick = function () {
+        //     console.log(this);
+        //     document.querySelector("#cup").src = "images/cup-2.jpg"
+        // };
+
+        let names = document.querySelectorAll('.name');
+
+        names.forEach((elem) => {
+            elem.onclick = function() {
+                // 익명 함수에서 this --> 내가 클릭한 객체
+                // 화살표 함수에서 this --> 그냥 윈도우 객체
+                console.log(this.innerText)
+            };
+        });
+    </script>
+</body>
+
+</html>

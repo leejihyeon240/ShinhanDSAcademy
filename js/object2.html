@@ -1,0 +1,14 @@
+<script>
+    // 팝업 버튼을 클릭하면 object.html 새창으로
+    window.onload = function () {
+        document.getElementById('btn').onclick = function () {
+            window.open('object.html', '', 'width=500, height=400');
+        }
+        document.getElementById('move').onclick = function () {
+            location.href = "http://www.naver.com";
+        }
+    };
+    document.write((navigator.userAgent));
+</script>
+<button id="btn">팝업</button>
+<button id="move">이동</button>

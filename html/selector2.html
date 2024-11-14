@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* 방문 후 */
+        a:visited {
+            color: red;
+            text-decoration: none;
+        }
+
+        /* 마우스 오버 */
+        a:hover {
+            background-color: yellow;
+        }
+
+        /* 클릭하는 순간 */
+        a:active {
+            color: gray;
+        }
+
+        /* 포커스 된 상태 */
+        input[type='text']:focus {
+            background: gray;
+        }
+        
+        input[type='radio']:checked+label {
+            color: red;
+            font-weight: bold;
+        }
+
+        li {
+            list-style: none;
+        }
+        /* 순서(위치) 가상 선택자 */
+        li:first-child {
+            color: blue;
+        }
+        li:last-child {
+            color: red;
+        }
+        li:nth-child(3) {
+            color: yellow;
+        }
+        /* 2n, 2n+1 */
+        li:nth-child(even) {
+            background-color: gray;
+        }
+        /* 순서(동일한 타입) 가상 선택자 */
+        
+    </style>
+</head>
+
+<body>
+    <a href="http://www.naver.com">네이버</a><br>
+    <label for="id">아이디</label> : <input text="text"><br>
+    <!-- name이 똑같아야 라디오 버튼이 그룹으로 묶임 -->
+    <input type="radio" name="room"><label for="room1"> 기본형(최대 2인)</label><br>
+    <input type="radio" name="room"><label for="room2"> 가족형(최대 8인)</label><br>
+    <hr>
+    <ul>
+        <li>첫째</li>
+        <li>둘째</li>
+        <li>셋째</li>
+        <li>넷째</li>
+        <li>다섯째</li>
+    </ul>
+    <hr>
+    <p>1등</p>
+    <p>2등</p>
+    <div>3등</div>
+    <p>4등</p>
+    <div>5등</div>
+</body>
+
+</html>
