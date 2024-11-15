@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ThirdServlet
  */
+// web.xml 설정 안 해두 됨
 @WebServlet("/third")
 public class ThirdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,7 +46,7 @@ public class ThirdServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("destroy 메서드 호출");
+		System.out.println("doPost 메서드 호출");
 	}
 
 }
