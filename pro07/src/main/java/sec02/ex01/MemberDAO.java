@@ -67,6 +67,47 @@ public class MemberDAO {
 		return list;
 	}
 
+	public void addMember(MemberVO vo) {
+		try {
+			con = dataFactory.getConnection();
+
+			String id = vo.getId();
+			String pwd = vo.getPwd();
+			String name = vo.getName();
+			String email = vo.getEmail();
+
+			String query = "INSERT INTO t_member (id, pwd, name, email) VALUES(?,?,?,?)";
+
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			pstmt.setString(3, name);
+			pstmt.setString(4, email);
+
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void delMember(String id) {
+		try {
+			con = dataFactory.getConnection();
+
+			String query = "delete from t_member" + " where id=?";
+			System.out.println("prepareStatement: " + query);
+
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+			pstmt.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
+
 //	private void connDB() {
 //
 //		try {
