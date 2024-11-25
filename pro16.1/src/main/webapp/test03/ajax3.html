@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+function fn_process() {
+	var _id = $("#t_id").val();
+	if (_id == '') {
+		alert("ID를 입력하세요");
+		return;
+	}
+	$.ajax({
+		type:'get',
+		dataType:'text',
+		async:false,
+		url:'../mem',
+		data:{id:_id},
+		success:function(data,textStatus) {
+			if (data == 'usable') {
+				$("#message").text('사용할 수 있는 ID입니다.');
+				$("#btn_duplicate").prop("disabled",true);
+			} else {
+				$("#message").text('사용할 수 없는 ID입니다.');
+			}
+		}
+	});
+}
+</script>
+</head>
+<body>
+<input type="text" id="t_id">
+<input type="button" id="btn_duplicate" value="전송하기" onclick="fn_process()"/><br><br>
+<div id="message"></div>
+</body>
+</html>
