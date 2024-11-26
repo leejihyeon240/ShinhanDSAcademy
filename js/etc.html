@@ -1,0 +1,61 @@
+<script>
+    // ECMA SCRIPT6
+    
+    // 전개연산
+    let arr = [1,2];
+    let arr2 = [...arr]; // 다른주소
+    console.log(arr == arr2); // false
+    let arr3 = arr;
+    console.log(arr == arr3); // true
+    console.log(arr2); // [1,2]
+
+    let arr4 = [...arr, 3]; // 값 추가
+    console.log(arr4);
+    // arr.push(arr2); // [1,2,[1,2]]
+    let arr5 = [...arr, ...arr2, ...arr3, ...arr4];
+    console.log(arr5);
+
+    let obj1 = {a:1, b:2};
+    let obj2 = {b:3, d:4};
+    let obj3 = {...obj1, ...obj2}; // 속성명이 중복시 뒤쪽값으로 대치
+    console.log(obj3);
+
+    obj3.d = 5; // 기존객체값만 변경
+    console.log('obj3:', obj3);
+
+    let obj4 = {...obj3, d:5}; // 기존객체에서 속성값 변경 (새로운객체)
+    console.log('obj4:', obj4);
+
+    // 객체 확장표현식
+    // {a:1,b:3,d:5,name:'홍길동'}
+    let propName = 'name';
+    // obj4[propName] = '홍길동';
+    // obj4.propName = '홍길동';
+    let member = {
+        id : 'hong',
+        age : 20,
+        [propName] : '홍길동'
+    };
+    console.log(member);
+
+    let no = 1;
+    let name = '홍길동';
+    let id = 'hong';
+    let age = 20;
+
+    let user = {no, name, id, age}; // {no: 1, name: '홍길동', id: 'hong', age: 20}
+    console.log(user);
+
+    // 구조분해할당 
+    // arr배열의 요소를 변수에 저장
+    // let a1 = arr[0];
+    // let a2 = arr[1];
+
+    // 구조분해할당 적용
+    let [a2, a1] = arr; // 배열(순서대로)
+    console.log(a1, a2);
+
+    let obj5 = {a:1, b:2};
+    let {b,c} = obj5; // 객체(속성명->변수명)
+    console.log(b,c);
+</script>

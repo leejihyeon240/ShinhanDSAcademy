@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            z-index: 1;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+            left: 20px;
+            top: -20px;
+            z-index: 2;
+        }
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: relative;
+            left: 40px;
+            top: -40px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">박스1</div>
+    <div id="box2">박스2</div>
+    <div id="box3">박스3</div>
+</body>
+</html>

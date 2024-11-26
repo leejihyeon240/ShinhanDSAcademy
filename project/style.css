@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    color: #fff;
+    /* 글꼴 색 */
+}
+
+section {
+    padding: 40px 10%;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+section h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* ---- 헤더 영역 --- */
+header {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/header-bg.jpg) center no-repeat;
+    background-size: cover;
+    padding: 10px 8%;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* .lang {...} */
+.lang i:nth-child(1) {
+    margin-right: 8px;
+}
+
+.lang i:nth-child(2) {
+    margin-left: 5px;
+}
+
+.add-email {
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.add-email input {
+    border: 0;
+    outline: 0;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.add-email button {
+    border: 0;
+    background-color: #db0001;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 30px;
+    /* 마우스 커서 모양 pointer */
+    cursor: pointer;
+}
+
+/* ---- 반응형 (헤더) ---- */
+@media only screen and (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav button {
+        padding: 5px 10px;
+    }
+
+    .lang {
+        padding: 4px 8px;
+    }
+
+    .header-content {
+        width: 90%;
+    }
+
+    .header-content h2 {
+        font-size: 48px;
+        line-height: 50px;
+    }
+
+    .header-content h3 {
+        font-size: 20px;
+    }
+
+    .add-email button {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+}

@@ -1,0 +1,182 @@
+<script>
+    // 함수 선언
+
+    aaa(); // 실행 가능 이유 : 호이스팅(함수가 알아서 위로 올라가는 것)
+
+    // 일반적인 방법
+    function aaa() {
+        console.log('aaa');
+    }
+
+    // 실행(호출)
+    aaa();
+
+    // 익명 함수 (일회성)
+    let bbb2 = function () {
+        console.log('bbb');
+    };
+
+    // 변수() -> 실행
+    bbb2(); // 함수가 들어있는 변수
+    console.log(bbb2);
+    console.log(bbb2());
+
+    // 즉시 실행 함수
+    // (함수)() -> 실행
+    (function ccc() {
+        console.log('ccc');
+    })();
+
+    // 두 개의 매개변수를 받아서 두 변수의 합을 리턴하는 함수
+    function addNumber(a, b) {
+        let r = a + b;
+
+        return r;
+    }
+
+    let r2 = addNumber(5, 10);
+    console.log(r2);
+
+    // 기본값
+    function multiple(a, b = 2, c = 3) {
+        return a + b + c;
+    }
+    console.log(multiple(1, 2));
+
+    // 가변인자
+    // 1, 2, 3, 4, 5의 합계
+    function sum(a, b, c, d, e, f) {
+        return a + b + c + d + e + f;
+    }
+    console.log('sum: ', sum(1, 2, 3, 4, 5, 6));
+
+    // 배열을 매개변수로 받는 경우
+    let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    function sum(arr2) {
+        let r = 0;
+        for (let i = 0; i < arr2.length; i++) {
+            r += arr2[i];
+        }
+        return r;
+    }
+    console.log(sum(arr2));
+
+    function sum() {
+        console.log(arguments);
+        let r = 0;
+        for (let i = 0; i < arguments.length; i++) {
+            r += arguments[i];
+        }
+        return r;
+    }
+
+    console.log(sum(1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6));
+
+    // arguments
+    // 매개변수의 개수가 제한없이 사용할 수 있다는 장점
+    // 사용(실행,호출)하는 곳에서 자동완성/힌트에서 확인불가능하므로 매개변수를 직접 지정하는 방식 추천
+    sum();
+
+    // 리턴
+    // 값을 가지고 돌아감
+    // 그냥 돌아가(함수 실행 중지)
+
+    function divide(a, b) {
+        if (b == 0) {
+            return; // 함수 실행 중지
+        }
+
+        let r = a / b;
+        return r;
+    }
+
+    console.log(divide(10, 0));
+
+    function test() {
+        console.log(1);
+        return;
+        console.log(2);
+        return 2;
+    }
+
+    test();
+
+    // 내부 함수(중첩 함수)
+    // 함수 안에 함수
+    function go() {
+        console.log('뛰다');
+    }
+
+    // 함수 500개...
+    function go() {
+        console.log('걷다');
+    }
+
+    function company() {
+        console.log('회사');
+        go();
+    }
+
+    company();
+
+    /* 콜백 /  콜백 함수
+    callback
+
+    call + back
+    실행 + 뒤 = 뒤에서 실행
+
+    : 함수의 매개변수로 함수를 전달
+    - 함수의 하나의 자료형을 갖는 값
+    - (비동기) 다른 함수 내에서 실행되기 위해
+
+    */
+
+    function test() {
+        console.log('test');
+    }
+
+    console.log(typeof test);
+
+    // function main(func) {
+    //     // main 함수 안에서 매개변수(func) 함수 실행
+    //     func();
+    // }
+
+    // main 함수 실행(test 함수를 매개변수로 넣어서)
+    // main(test());
+
+    console.log('-------------');
+    setTimeout(() => {
+        console.log('콜백');
+    }, 1000);
+
+    /*
+    클로저 (closure)
+    - 독립적인 변수를 가지는 함수
+    - 내부함수 개념을 사용하여 별도의 스코프를 정의
+    */
+
+    function aaaa() {
+        let text = '홍길동'; // 지역변수
+        return function () {
+            return text;
+        }
+    }
+
+    aaaa();
+    // console.log(text); // 지역 변수 사용 불가
+
+    function aaaaa(name) {
+        let greet = name + '님, 안녕하세요';
+        return function() {
+            return greet;
+        }
+    }
+
+    let g1 = aaaaa('홍길동');
+    let g2 = aaaaa('김길동');
+
+    console.log(g1());
+    console.log(g2());
+
+</script>

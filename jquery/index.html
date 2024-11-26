@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .blueText {
+            color :blue;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            // let obj = $("h1");
+            // console.log(obj);
+
+            // jquery 사용법
+            // $(선택자).메서드()
+
+            // h1 태그의 글자색 red
+            // $("*").css('color','red');
+
+            // * 문서 조작
+            // 클래스 추가/삭제
+            $("#itemList > li").addClass('blueText');
+            $(".some").removeClass('blueText');
+
+            // toggleClass : 있으면 제거, 없으면 추가
+            $("#itemList > li").toggleClass('blueText');
+            $("#itemList > li").toggleClass('blueText');
+
+            // 속성 : attribute
+            console.log($('#img').attr('src')); // src속성값 리턴
+            $('#img').attr('src', '/js/images/cup-1.jpg'); // src속성에 두번째 매개변수값을 저장
+            // $('#img').attr('width',200);
+            $('#img').attr({width:200, height:100});
+            $('#img').removeAttr('height'); // 속성 제거
+            
+            // 스타일 : css
+            console.log($('#itemList > li').css('color'));
+            $('#itemList > li').css('color','red');
+
+            // 객체 내부 확인/저장
+            console.log($("#greet").text());
+            console.log($("#greet").html());
+
+            $("#greet").html('<b>반갑습니다.</b>');
+            //$("#greet").html('<ul><li>1</li></ul>');
+
+            // 객체 삭제
+            // $("#greet").remove();
+            // 객체 내부 삭제(비움)
+            // $("#greet").empty();
+
+            // 객체 추가
+            // $("#greet").append("<span>하이</span>"); // 매개변수객체가 선택자객체 사이에 맨끝에 추가
+            // $("<span>하이</span>").appendTo("#greet");
+            $("#itemList").append("<li>Java</li>");
+
+            $("#greet").after("<span>하이</span>");
+            $("#greet").clone().appendTo("#greet"); // 복사해서 appendTo
+
+            // 객체가 여러개면 배열
+            // li태그의 텍스트를 출력
+            $("#itemList > li").each((i, e)=>{
+                // console.log(e.innerText);
+                console.log($(e).text());
+            });
+            // 세번째객체 텍스트 출력
+            console.log($("#itemList > li").eq(2).text());
+        });
+    </script>
+</head>
+<body>
+    <h1>웹 프로그래밍</h1>
+    <ul id="itemList">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li class="some">JavaScript</li>
+    </ul>
+    <img id="img" src="/js/images/google.png"><br>
+    <div id="greet">안녕하세요</div>
+</body>
+</html>
