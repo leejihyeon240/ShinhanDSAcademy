@@ -164,3 +164,4 @@ FROM (
      )
 WHERE ROWNUM <= 3;
 
+commit;
