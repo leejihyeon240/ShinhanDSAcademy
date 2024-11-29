@@ -22,4 +22,47 @@ JSON <br>
 request, Model, ModelAndView  <br>
 Model : 값을 저장하는곳(request) <br>
 
+### Controller <br>
+- url 매핑 <br>
+- 파라미터 받기 <br>
+- 비즈니스 로직 실행(Service) <br>
+- 저장 (request) <br>
+- 응답 <br>
+
+### 개발 시 적용이 안 된다 <br>
+project > clean <br>
+alt+f5 > force <br>
+tomcat clean <br>
+tomcat work 삭제 <br>
+
+chapter06 <br>
+DB연동 <br>
+DAO <-> MyBatis  <-> DB <br>
+
+<mapper namespace="매퍼이름"> <br>
+조회 : <select> <br>
+등록 : <insert> <br>
+수정 : <update> <br> 
+삭제 : <delete> <br> 
+</mapper> <br>
+
+속성 <br>
+id <br>
+parameterType : 파라미터 자료형 <br>
+resultType : 결과 자료형 <br>
+
+### SqlSessionTemplate <br>
+insert, update, delete <br>
+selectOne : 한건 조회 <br>
+selectList : 목록 조회 <br>
+오버로딩 <br>
+(식별자) <br>
+(식별자, 파라미터) <br>
+식별자 : namespace.id <br>
+
+prepareStatemt -> ? <br>
+#변수명# <br> 
+statement -> 그대로 <br>
+$변수명$ <br>
+
 ![스크린샷 2024-11-28 101959](https://github.com/user-attachments/assets/c93ba565-1a77-4639-a688-4583f2e153bb)
