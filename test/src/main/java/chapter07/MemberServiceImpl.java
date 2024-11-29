@@ -16,4 +16,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.list();
 	}
 
+	@Override
+	public MemberVO view(String id) {
+		
+		return dao.view(id);
+	}
+
 }

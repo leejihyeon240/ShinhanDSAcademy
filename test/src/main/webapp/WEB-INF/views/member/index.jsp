@@ -20,7 +20,7 @@
 		</tr>
 		<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>${vo.id }</td>
+				<td><a href="view.do?id=${vo.id }">${vo.id }</a></td>
 				<td>${vo.pwd }</td>
 				<td>${vo.name }</td>
 				<td>${vo.email }</td>

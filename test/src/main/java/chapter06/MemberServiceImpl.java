@@ -5,15 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MemberServiceImpl implements MemberService {
-
 	@Autowired
 	private MemberDAO dao;
-
+	
 	@Override
 	public List<MemberVO> list() {
+		
 		return dao.list();
+
+	}
+
+	@Override
+	public MemberVO view(String id) {
+		
+		return dao.view(id);
 	}
 
 }

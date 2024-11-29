@@ -16,4 +16,8 @@ public class MemberDAO {
 		List<MemberVO> list = sst.selectList("member.memberList");
 		return list;
 	}
+
+	public MemberVO view(String id) {
+		return sst.selectOne("member.memberOne", id);
+	}
 }

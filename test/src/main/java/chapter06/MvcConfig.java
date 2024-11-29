@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -18,14 +17,14 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "chapter06" }) // 스캔할 베이스 패키지
-public class MvcConfig implements WebMvcConfigurer {
+@ComponentScan(basePackages = {"chapter06"}) // 스캔할 베이스 패키지
+public class MvcConfig implements WebMvcConfigurer{
 	// 뷰리졸버 - 포워딩할 경로 앞/뒤 설정
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		registry.jsp("/WEB-INF/views/", ".jsp");
 	}
-
+	
 	// HikariCP
 	@Bean
 	public DataSource dataSource() {
@@ -36,19 +35,16 @@ public class MvcConfig implements WebMvcConfigurer {
 		dataSource.setPassword("test1234");
 		return dataSource;
 	}
-
 	// MyBatis
 	@Bean
 	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean ssf = new SqlSessionFactoryBean();
 		ssf.setDataSource(dataSource()); // 의존성 주입
-		// mapper 파일의 위치
+		// mapper파일의 위치
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		ssf.setMapperLocations(resolver.getResources("classpath:/mapper/**/*.xml"));
-
 		return ssf.getObject();
 	}
-
 	// DAO에서 주입받을 객체
 	// sql 실행하려고
 	@Bean

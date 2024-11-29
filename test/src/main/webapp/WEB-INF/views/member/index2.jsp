@@ -19,7 +19,7 @@
 		</tr>
 		<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>${vo.ename }</td>
+				<td><a href="view.do?id=${vo.ename }">${vo.ename }</a></td>
 				<td>${vo.job }</td>
 				<td>${vo.hiredate }</td>
 				<td>${vo.sal }</td>

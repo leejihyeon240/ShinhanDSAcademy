@@ -5,4 +5,12 @@
 	<select id="memberList" resultType="chapter07.MemberVO">
 		SELECT * FROM EMP
 	</select>
+	<!-- 회원 목록 -->
+	<select id="memberList" resultType="chapter06.MemberVO">
+		SELECT * FROM t_member
+	</select>
+	<!-- 회원 조회 -->
+	<select id="memberOne" resultType="chapter06.MemberVO" parameterType="">
+		SELECT * FROM t_member WHERE id=#{id}
+	</select>
 </mapper>

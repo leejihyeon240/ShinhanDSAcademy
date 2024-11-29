@@ -8,12 +8,15 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MemberDAO {
-	// SqlSessionTemplate
+	// SqlSessionTemplate 주입
 	@Autowired
 	private SqlSessionTemplate sst;
-
+	
 	public List<MemberVO> list() {
 		List<MemberVO> list = sst.selectList("member.memberList");
 		return list;
+	}
+	public MemberVO view(String id) {
+		return sst.selectOne("member.memberOne", id);
 	}
 }
