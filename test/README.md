@@ -17,6 +17,9 @@ JSON <br>
 3. @ModelAttribute - 객체(내가 만든 클래스)를 바인딩할때 <br>
 4. @PathVariable - 경로에 변수 값 저장 <br>
 
+* 값 저장하는 방법  <br>
+값 저장 - view에서 쓸려고  <br>
+request, Model, ModelAndView  <br>
 Model : 값을 저장하는곳(request) <br>
 
 ![스크린샷 2024-11-28 101959](https://github.com/user-attachments/assets/c93ba565-1a77-4639-a688-4583f2e153bb)
