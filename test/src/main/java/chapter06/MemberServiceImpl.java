@@ -12,9 +12,9 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO dao;
 	
 	@Override
-	public List<MemberVO> list() {
+	public List<MemberVO> list(MemberVO vo) {
 		
-		return dao.list();
+		return dao.list(vo);
 
 	}
 
@@ -22,6 +22,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO view(String id) {
 		
 		return dao.view(id);
+	}
+
+	@Override
+	public boolean insert(MemberVO vo) {
+		return dao.insert(vo) > 0 ? true : false;
 	}
 
 }

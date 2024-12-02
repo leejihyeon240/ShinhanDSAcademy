@@ -12,11 +12,14 @@ public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate sst;
 	
-	public List<MemberVO> list() {
-		List<MemberVO> list = sst.selectList("member.memberList");
+	public List<MemberVO> list(MemberVO vo) {
+		List<MemberVO> list = sst.selectList("member.memberList", vo);
 		return list;
 	}
 	public MemberVO view(String id) {
 		return sst.selectOne("member.memberOne", id);
+	}
+	public int insert(MemberVO vo) {
+		return sst.insert("member.memberInsert", vo);
 	}
 }

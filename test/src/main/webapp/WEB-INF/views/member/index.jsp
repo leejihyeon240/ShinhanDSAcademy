@@ -28,7 +28,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<form method="get" action="list.do">
+	<form method="get" action="index.do">
 		<select name="searchType">
 			<option value="all">전체</option>
 			<option value="id"
@@ -41,13 +41,3 @@
 	</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

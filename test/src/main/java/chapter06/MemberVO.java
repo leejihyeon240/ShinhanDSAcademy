@@ -9,4 +9,8 @@ public class MemberVO {
 	private String pwd;
 	private String email;
 	private String joindate;
+	
+	// 검색
+	private String searchType;
+	private String searchWord;
 }
