@@ -38,14 +38,16 @@ tomcat work 삭제 <br>
 chapter06 <br>
 DB연동 <br>
 DAO <-> MyBatis  <-> DB <br>
-
+<br>
+```
 <mapper namespace="매퍼이름"> <br>
 조회 : <select> <br>
 등록 : <insert> <br>
 수정 : <update> <br> 
 삭제 : <delete> <br> 
 </mapper> <br>
-
+```
+<br>
 속성 <br>
 id <br>
 parameterType : 파라미터 자료형 <br>
