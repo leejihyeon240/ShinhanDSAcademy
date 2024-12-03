@@ -1,4 +1,4 @@
-package chapter08;
+package chapter09;
 
 import java.util.Arrays;
 
@@ -25,6 +25,7 @@ public class StudentController {
 	public void write() {
 		
 	}
+	
 	@PostMapping("/student/regist.do")
 	public String regist(Model model, StudentVO vo) {
 		service.insert(vo);

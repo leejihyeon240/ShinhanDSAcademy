@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="student">
+<mapper namespace="chapter09.StudentMapper">
 
 	<!-- resultMap(결과) -->
-	<resultMap type="chapter08.StudentVO" id="svo">
+	<resultMap type="chapter09.StudentVO" id="svo">
 		<result column="grade" property="year"/>
 	</resultMap>
 	
@@ -32,32 +32,28 @@
 		</where>
 	</sql>
 
-	<select id="list" parameterType="chapter08.StudentVO" resultType="chapter08.StudentVO">
+	<select id="list" parameterType="chapter09.StudentVO" resultType="chapter09.StudentVO">
 		SELECT 
 			student.studno, student.id, student.name, student.grade, 
 			(SELECT name FROM professor WHERE no = student.profno) profname 
 		FROM student
 		<include refid="whereSql"/>
 	</select>
-	<select id="count" parameterType="chapter08.StudentVO" resultType="int">
+	<select id="count" parameterType="chapter09.StudentVO" resultType="int">
 		SELECT COUNT(*) FROM student
 		<include refid="whereSql"/>
 	</select>
 	
-	<insert id="insert" parameterType="chapter08.StudentVO">
-		INSERT INTO student (id, NAME, grade, jumin) 
+	<insert id="insert" parameterType="chapter09.StudentVO">
+		INSERT INTO student (id, name, grade, jumin) 
 		VALUES (#{id}, #{name}, #{grade}, #{jumin})
 		<selectKey order="AFTER" keyProperty="studno" resultType="int">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
-	<insert id="insertHobby" parameterType="chapter08.HobbyVO">
+	<insert id="insertHobby" parameterType="chapter09.HobbyVO">
 		INSERT INTO hobby (studno, name)
 		VALUES (#{studno}, #{name})
 	</insert>
-	
-	
-	
-	
 	
 </mapper>
