@@ -38,14 +38,16 @@ tomcat work 삭제 <br>
 chapter06 <br>
 DB연동 <br>
 DAO <-> MyBatis  <-> DB <br>
-
+<br>
+```
 <mapper namespace="매퍼이름"> <br>
 조회 : <select> <br>
 등록 : <insert> <br>
 수정 : <update> <br> 
 삭제 : <delete> <br> 
 </mapper> <br>
-
+```
+<br>
 속성 <br>
 id <br>
 parameterType : 파라미터 자료형 <br>
@@ -64,5 +66,17 @@ prepareStatemt -> ? <br>
 #변수명# <br> 
 statement -> 그대로 <br>
 $변수명$ <br>
+
+### 동적SQL (Dynamic SQL) <br>
+<where> : WHERE 절 <br>
+<if test="조건"> : 조건이 true인 경우 SQL에 포함 <br>
+
+### chapter08 <br>
+mybatis 두번째 <br>
+DB : MariaDB로 변경 <br>
+
+<forEach> 다중 검색 <br>
+<include> <br>
+<resultMap> <br>
 
 ![스크린샷 2024-11-28 101959](https://github.com/user-attachments/assets/c93ba565-1a77-4639-a688-4583f2e153bb)
