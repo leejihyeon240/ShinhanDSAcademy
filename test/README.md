@@ -75,8 +75,40 @@ $변수명$ <br>
 mybatis 두번째 <br>
 DB : MariaDB로 변경 <br>
 
+```
 <forEach> 다중 검색 <br>
 <include> <br>
 <resultMap> <br>
+```
+
+순번/PK <br>
+오라클 : 시퀀스 <br>
+mysql, mariaDB : auto increament(AI) <br>
+
+### chapter09 <br>
+Mapper(인터페이스) 방식 <br>
+Mapper인터페이스, Mapper xml 파일명, namespace 이름(패키지 포함) <br>
+인터페이스 추상메서드 == xml의 id(이름, 매개변수, 리턴) <br>
+
+### 트랜잭션 <br>
+- 논리적인 하나의 작업 단위 <br>
+- 빈 등록, 설정파일 어노테이션 추가 <br>
+- 서비스 메소드 위에 어노테이션 추가 <br>
+
+### chapter10 <br>
+인터셉터(interceptor) <br>
+
+### chapter11 <br>
+파일업로드(등록) <br>
+- 파일 : 서버(디스크)에 저장 <br>
+- 파일명 : DB에 저장(실제 파일명, 원본 파일명) <br>
+다운로드(상세) <br>
+
+### chapter12 <br>
+아이디 중복체크(ajax) <br>
+로그인 / 세션처리 <br>
+API <br>
+
+
 
 ![스크린샷 2024-11-28 101959](https://github.com/user-attachments/assets/c93ba565-1a77-4639-a688-4583f2e153bb)
