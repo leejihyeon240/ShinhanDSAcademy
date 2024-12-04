@@ -1,68 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입창</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 	function fn_sendMember() {
-		var frmMember = document.frmMember;
-		var id = frmMember.id.value;
-		var name = frmMember.name.value;
-		
-		//if (id.length == 0 || id == '') {
-		if (id.trim() == '') {
-			alert('아이디는 필수입니다.');
-			//id.focus();
-			document.querySelector("input[name='id']").focus();
+		// $("#frmMember").submit();
+		if ($("id").val() == '') {
+			alert('아이디를 입력하세요');
+			$("#id").focus();
 			return;
 		}
-		if (name.length == 0 || name == '') {
-			alert('이름은 필수입니다.');
+		if ($("pwd").val() == '') {
+			alert('비밀번호를 입력하세요');
+			$("#pwd").focus();
 			return;
 		}
-		
-		frmMember.method='post';
-		frmMember.action='regist.do';
-		frmMember.submit();
-		
+		if ($("grade").val() == '') {
+			alert('학년을 입력하세요');
+			$("#grade").focus();
+			return;
+		}
+		if ($("이름").val() == '') {
+			alert('이름을 입력하세요');
+			$("#name").focus();
+			return;
+		}
 	}
+	$(function() {
+		$("#idCheck").click(function() {
+			if ($("#id").val() == '') {
+				alert('아이디를 입력하세요');
+				$("#id").focus();
+			} else {
+				$.ajax({
+					url : 'idCheck.do',
+					data : {
+						id : $("#id").val()
+					},
+					success : function(res) {
+						//console.log(res);
+						if (res == true) {
+							alert('중복된 아이디입니다.');
+						} else {
+							alert('사용가능한 아이디입니다.');
+						}
+					}
+				});
+			}
+		});
+		$("#grade").keypress(function(event) {
+			if (event.key >= 0 && event.key <= 6) {
+				return true;
+			} else {
+				alert('1~6사이의 숫자만 입력하세요');
+			}
+
+		})
+	});
 </script>
 </head>
 <body>
-<form name="frmMember">
-	<table>
-		<tr>
-			<th colspan="2">회원 가입창</th>
-		</tr>
-		<tr>
-			<td>아이디</td>
-			<td><input type="text" name="id"></td>
-		</tr>
-		<tr>
-			<td>학년</td>
-			<td><input type="text" name="grade"></td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><input type="text" name="name"></td>
-		</tr>
-		<tr>
-			<td>주민번호</td>
-			<td><input type="text" name="jumin"></td>
-		</tr>
-		<tr>
-			<td>취미</td>
-			<td>
-				<input type="checkbox" name="hobbyName" value="영화">영화
-				<input type="checkbox" name="hobbyName" value="독서">독서
-				<input type="checkbox" name="hobbyName" value="게임">게임
-			</td>
-		</tr>
-	</table>
-	<input type="button" value="가입하기" onclick="fn_sendMember()">
-	<input type="reset" value="다시 입력">
-</form>
+	<form name="frmMember" id="frmMember" method="post" action="regist.do"
+		enctype="multipart/form-data">
+		<table>
+			<tr>
+				<th colspan="2">회원 가입창</th>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id" id="id"> <input
+					type="button" value="아이디 중복체크" id="idCheck"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" name="pwd" id="pwd"></td>
+			</tr>
+			<tr>
+				<td>학년</td>
+				<td><input type="number" name="grade" id="grade"></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" id="name"></td>
+			</tr>
+			<tr>
+				<td>주민번호</td>
+				<td><input type="text" name="jumin" id="jumin"></td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td><input type="checkbox" name="hobbyName" value="영화">영화
+					<input type="checkbox" name="hobbyName" value="독서">독서 <input
+					type="checkbox" name="hobbyName" value="게임">게임</td>
+			</tr>
+			<tr>
+				<td>첨부파일</td>
+				<td><input type="file" name="filename"></td>
+			</tr>
+		</table>
+		<input type="button" value="가입하기" onclick="fn_sendMember()"> <input
+			type="reset" value="다시 입력">
+	</form>
 </body>
 </html>

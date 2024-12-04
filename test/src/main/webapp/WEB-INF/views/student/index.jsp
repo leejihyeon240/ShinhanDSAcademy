@@ -20,7 +20,7 @@
 	</tr>
 <c:forEach var="vo" items="${map.list }">
 	<tr>
-		<td>${vo.studno }</td>
+		<td><a href="view.do?studno=${vo.studno }">${vo.studno }</a></td>
 		<td>${vo.name }</td>
 		<td>${vo.id }</td>
 		<td>${vo.grade }</td>

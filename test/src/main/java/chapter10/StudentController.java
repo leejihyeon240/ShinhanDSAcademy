@@ -23,9 +23,8 @@ public class StudentController {
 	
 	@GetMapping("/student/write.do")
 	public void write() {
-		
+		System.out.println("write");
 	}
-	
 	@PostMapping("/student/regist.do")
 	public String regist(Model model, StudentVO vo) {
 		service.insert(vo);
