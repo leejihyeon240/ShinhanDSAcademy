@@ -7,4 +7,5 @@ public interface StudentService {
 	void insert(StudentVO vo);
 	StudentVO view(int studno);
 	boolean idCheck(String id);
+	StudentVO login(Map map);
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$(function() {
+		getList();
+	});
+
+	function getList() {
+		$.ajax({
+			url : '/test/api/student/list',
+			data : {
+				searchGrade:$("#searchGrade").val(),
+				searchType:$("#searchType").val(),
+				searchWord:$("#searchWord").val()
+			},
+			success : function(res) {
+				console.log(res.list);
+				$("#count").text(res.count);
+				$(".addTr").remove();
+				$.each(res.list, function(i, e) {
+					// console.log(i, e);
+					$("#tbl").append(
+							'<tr class="addTr"><td>' + e.studno + '</td><td>' + e.name
+									+ '</td><td>' + e.id + '</td><td>'
+									+ e.grade + '</td><td>' + e.profname
+									+ '</td></tr>');
+				});
+			}
+		})
+	}
+
+	function search() {
+		getList();
+		return false;
+	}
+</script>
+</head>
+<body>
+	<h1 style="text-align: center" id="tbl">학생 정보 출력</h1>
+	총
+	<span id="count"></span>명
+	<table border=1 width=800 align=center>
+		<tr align=center bgcolor="#FFFF66">
+			<td>학생번호</td>
+			<td>이름</td>
+			<td>아이디</td>
+			<td>학년</td>
+			<td>교수</td>
+		</tr>
+
+	</table>
+	<form method="get" action="index.do"
+		style="width: 800px; margin: 0 auto;" onsubmit="return search();">
+		학년: <select name="searchGrade" id="searchGrade">
+			<option value="0">전체</option>
+			<option value="1">1학년</option>
+			<option value="2">2학년</option>
+			<option value="3">3학년</option>
+			<option value="4">4학년</option>
+		</select><br> 학과: <input type="checkbox" name="searchMajor" value="101">컴퓨터공학과
+		<input type="checkbox" name="searchMajor" value="102">멀티미디어공학과
+		<input type="checkbox" name="searchMajor" value="103">소프트웨어공학과
+		<input type="checkbox" name="searchMajor" value="201">전자공학과 <input
+			type="checkbox" name="searchMajor" value="202">기계공학과 <input
+			type="checkbox" name="searchMajor" value="301">문헌정보학과<br>
+		<select name="searchType" id="searchType">
+			<option value="all">전체</option>
+			<option value="id">아이디</option>
+			<option value="name">이름</option>
+		</select> 검색어 : <input type="text" name="searchWord" id="searchWord"> <input
+			type="submit" value="조회하기">
+	</form>
+</body>
+</html>

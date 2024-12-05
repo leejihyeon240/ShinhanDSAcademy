@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 style="text-align:center">학생 정보 출력</h1>
-총 ${map.count }명
+총 ${map.count }명 <c:if test="${!empty loginInfo }">${loginInfo.name }님 안녕하세요</c:if>
 <table border=1 width=800 align=center>
 	<tr align=center bgcolor="#FFFF66">
 		<td>학생번호</td>
@@ -20,7 +20,7 @@
 	</tr>
 <c:forEach var="vo" items="${map.list }">
 	<tr>
-		<td><a href="view.do?studno=${vo.studno }">${vo.studno }</a></td>
+		<td><a href="view.do?studno=${vo.studno}">${vo.studno }</a></td>
 		<td>${vo.name }</td>
 		<td>${vo.id }</td>
 		<td>${vo.grade }</td>

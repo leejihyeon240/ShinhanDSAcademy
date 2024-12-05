@@ -1,4 +1,4 @@
-package chapter12;
+package chapter13;
 
 import javax.sql.DataSource;
 
@@ -24,8 +24,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"chapter12"}) // 스캔할 베이스 패키지
-@MapperScan(basePackages = {"chapter12"}, annotationClass = Mapper.class) // Mapper 인터페이스 스캔
+@ComponentScan(basePackages = {"chapter13"}) // 스캔할 베이스 패키지
+@MapperScan(basePackages = {"chapter13"}, annotationClass = Mapper.class) // Mapper 인터페이스 스캔
 @EnableTransactionManagement
 public class MvcConfig implements WebMvcConfigurer{
 	// 뷰리졸버 - 포워딩할 경로 앞/뒤 설정
@@ -71,22 +71,22 @@ public class MvcConfig implements WebMvcConfigurer{
 		return dtm;
 	}
 	
-	// 인터셉터 빈 등록
-	@Bean
-	public LoginInterceptor interception() {
-		return new LoginInterceptor();
-	}
-	
-	// 설정
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(interception())
-			.addPathPatterns("/student/write.do");
-		
-			// 관리자페이지
-//			.addPathPatterns("/admin/**")
-//			.excludePathPatterns("/admin/login.do")
-	}
+//	// 인터셉터 빈 등록
+//	@Bean
+//	public LoginInterceptor interception() {
+//		return new LoginInterceptor();
+//	}
+//	
+//	// 설정
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		registry.addInterceptor(interception())
+//			.addPathPatterns("/student/write.do");
+//		
+//			// 관리자페이지
+////			.addPathPatterns("/admin/**")
+////			.excludePathPatterns("/admin/login.do")
+//	}
 	
 	// 파일업로드관련 빈 등록
 	@Bean

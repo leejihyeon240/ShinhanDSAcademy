@@ -2,8 +2,10 @@ package chapter12;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,6 @@ public class StudentController {
 	public void write() {
 		System.out.println("write");
 	}
-	
 	@PostMapping("/student/regist.do")
 	public String regist(Model model, StudentVO vo, @RequestParam MultipartFile filename, HttpServletRequest req) {
 		if (!filename.isEmpty()) { // 사용자가 파일을 첨부했으면
@@ -55,7 +56,6 @@ public class StudentController {
 		model.addAttribute("url", "index.do");
 		return "common/alert";
 	}
-	
 	@GetMapping("/student/view.do")
 	public String view(@RequestParam int studno, Model model) {
 		model.addAttribute("vo", service.view(studno));
@@ -67,4 +67,22 @@ public class StudentController {
 	public boolean idCheck(@RequestParam String id) {
 		return service.idCheck(id);
 	}
+	
+	@GetMapping("/student/login.do")
+	public void login() {
+		
+	}
+	@PostMapping("/student/login.do")
+	public String loginProcess(@RequestParam Map map, Model model, HttpSession sess) {
+		StudentVO vo = service.login(map);
+		if (vo == null) { // 로그인 실패
+			model.addAttribute("msg", "아이디 비밀번호가 올바르지 않습니다.");
+			model.addAttribute("url", "login.do");
+			return "common/alert";
+		} else { // 로그인 성공
+			sess.setAttribute("loginInfo", vo);
+			return "redirect:index.do";
+		}
+	}
+	
 }

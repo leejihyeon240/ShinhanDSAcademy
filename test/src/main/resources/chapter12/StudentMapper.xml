@@ -1,53 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="chapter12.StudentMapper">
+
 	<!-- resultMap(결과) -->
 	<resultMap type="chapter12.StudentVO" id="svo">
-		<result column="grade" property="year" />
+		<result column="grade" property="year"/>
 	</resultMap>
+	
 	<sql id="whereSql">
 		<where>
 			<!-- 검색어를 입력해서 검색한 경우 -->
 			<if test="searchWord != null and searchWord != ''">
-				<if test="searchType == 'all'"> id LIKE '%${searchWord}%' OR name LIKE
-					'%${searchWord}%' </if>
-				<if test="searchType != 'all'"> ${searchType} LIKE '%${searchWord}%' </if>
+				<if test="searchType == 'all'">
+					id LIKE '%${searchWord}%' OR name LIKE '%${searchWord}%'
+				</if>
+				<if test="searchType != 'all'">
+					${searchType} LIKE '%${searchWord}%'
+				</if>
 			</if>
 			<!-- 학년 검색한 경우 -->
-			<if test="searchGrade > 0"> AND grade = #{searchGrade} </if>
+			<if test="searchGrade > 0">
+				AND grade = #{searchGrade}
+			</if>
 			<!-- 학과 검색한 경우 -->
 			<if test="searchMajor != null">
-				AND major1 IN
-				<foreach collection="searchMajor" item="m" open="("
-					close=")" separator=","> #{m} </foreach>
+				AND major1 IN 
+				<foreach collection="searchMajor" item="m" open="(" close=")" separator=",">
+					#{m}
+				</foreach>
 			</if>
 		</where>
 	</sql>
-	<select id="list" parameterType="chapter12.StudentVO"
-		resultType="chapter12.StudentVO">
-		SELECT student.studno, student.id, student.name, student.grade,
-		(SELECT name FROM professor WHERE no = student.profno) profname FROM
-		student
-		<include refid="whereSql" />
+
+	<select id="list" parameterType="chapter12.StudentVO" resultType="chapter12.StudentVO">
+		SELECT 
+			student.studno, student.id, student.name, student.grade, 
+			(SELECT name FROM professor WHERE no = student.profno) profname 
+		FROM student
+		<include refid="whereSql"/>
 	</select>
-	<select id="count" parameterType="chapter12.StudentVO"
-		resultType="int">
+	<select id="count" parameterType="chapter12.StudentVO" resultType="int">
 		SELECT COUNT(*) FROM student
-		<include refid="whereSql" />
+		<include refid="whereSql"/>
 	</select>
+	
 	<insert id="insert" parameterType="chapter12.StudentVO">
-		INSERT INTO student (id, NAME, grade, jumin, real_filename,
-		org_filename) VALUES (#{id}, MD5(#{pwd}), #{name}, #{grade}, #{jumin},
-		#{real_filename}, #{org_filename})
-		<selectKey order="AFTER" keyProperty="studno"
-			resultType="int"> SELECT LAST_INSERT_ID() </selectKey>
+		INSERT INTO student (id, pwd, NAME, grade, jumin, real_filename, org_filename) 
+		VALUES (#{id}, MD5(#{pwd}), #{name}, #{grade}, #{jumin}, #{real_filename}, #{org_filename})
+		<selectKey order="AFTER" keyProperty="studno" resultType="int">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
 	</insert>
-	<insert id="insertHobby" parameterType="chapter12.HobbyVO"> INSERT INTO hobby
-		(studno, name) VALUES (#{studno}, #{name})
+	<insert id="insertHobby" parameterType="chapter12.HobbyVO">
+		INSERT INTO hobby (studno, name)
+		VALUES (#{studno}, #{name})
 	</insert>
-	<select id="view" parameterType="int"
-		resultType="chapter12.StudentVO"> SELECT * FROM student WHERE studno=#{asdfasdfaf} </select>
+	<select id="view" parameterType="int" resultType="chapter12.StudentVO">
+		SELECT * FROM student WHERE studno=#{asdfasdfaf}
+	</select>
 	<select id="idCheck" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM student WHERE id=#{id}
 	</select>
+	<select id="login" parameterType="map" resultType="chapter12.StudentVO">
+		SELECT * FROM student WHERE id=#{id} AND pwd = MD5(#{pwd})
+	</select>
+	
+	
 </mapper>
