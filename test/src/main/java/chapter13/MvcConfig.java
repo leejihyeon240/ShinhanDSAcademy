@@ -24,8 +24,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"chapter12"}) // 스캔할 베이스 패키지
-@MapperScan(basePackages = {"chapter12"}, annotationClass = Mapper.class) // Mapper 인터페이스 스캔
+@ComponentScan(basePackages = {"chapter13"}) // 스캔할 베이스 패키지
+@MapperScan(basePackages = {"chapter13"}, annotationClass = Mapper.class) // Mapper 인터페이스 스캔
 @EnableTransactionManagement
 public class MvcConfig implements WebMvcConfigurer{
 	// 뷰리졸버 - 포워딩할 경로 앞/뒤 설정
