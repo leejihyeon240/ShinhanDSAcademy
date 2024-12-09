@@ -11,24 +11,10 @@
 	function getList() {
 		console.log($("#frm").serialize());
 		$.ajax({
-			url:'/test/api/student/list',
-			/*
-			data : {
-				searchGrade:$("#searchGrade").val(),
-				searchType:$("#searchType").val(),
-				searchWord:$("#searchWord").val()
-			},
-			*/
+			url:'/test/student/index.do',
 			data : $("#frm").serialize(),
 			success : function(res) {
-				console.log(res.list);
-				$("#count").text(res.count);
-				$(".addTr").remove();
-				$.each(res.list, function(i,e) {
-					//console.log(i,e);
-					//console.log(e.studno);
-					$("#tbl").append('<tr class="addTr"><td>'+e.studno+'</td><td>'+e.name+'</td><td>'+e.id+'</td><td>'+e.grade+'</td><td>'+e.profname+'</td></tr>')
-				});
+				$("#tbl").html(res);
 			}
 		})
 	}
@@ -40,17 +26,7 @@
 </head>
 <body>
 <h1 style="text-align:center">학생 정보 출력</h1>
-총 <span id="count"></span>명
-<table border=1 width=800 align=center id="tbl">
-	<tr align=center bgcolor="#FFFF66">
-		<td>학생번호</td>
-		<td>이름</td>
-		<td>아이디</td>
-		<td>학년</td>
-		<td>교수</td>
-	</tr>
-
-</table>
+<div id="tbl"></div>
 <form id="frm" method="get" action="index.do" style="width:800px;margin:0 auto;" onsubmit="return search();">
 학년:
 <select name="searchGrade" id="searchGrade">

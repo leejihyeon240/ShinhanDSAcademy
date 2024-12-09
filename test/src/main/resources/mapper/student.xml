@@ -3,7 +3,7 @@
 <mapper namespace="student">
 
 	<!-- resultMap(결과) -->
-	<resultMap type="chapter08.StudentVO" id="svo">
+	<resultMap type="chapter07.StudentVO" id="svo">
 		<result column="grade" property="year"/>
 	</resultMap>
 	
@@ -32,26 +32,26 @@
 		</where>
 	</sql>
 
-	<select id="list" parameterType="chapter08.StudentVO" resultType="chapter08.StudentVO">
+	<select id="list" parameterType="chapter07.StudentVO" resultType="chapter07.StudentVO">
 		SELECT 
 			student.studno, student.id, student.name, student.grade, 
 			(SELECT name FROM professor WHERE no = student.profno) profname 
 		FROM student
 		<include refid="whereSql"/>
 	</select>
-	<select id="count" parameterType="chapter08.StudentVO" resultType="int">
+	<select id="count" parameterType="chapter07.StudentVO" resultType="int">
 		SELECT COUNT(*) FROM student
 		<include refid="whereSql"/>
 	</select>
 	
-	<insert id="insert" parameterType="chapter08.StudentVO">
+	<insert id="insert" parameterType="chapter07.StudentVO">
 		INSERT INTO student (id, NAME, grade, jumin) 
 		VALUES (#{id}, #{name}, #{grade}, #{jumin})
 		<selectKey order="AFTER" keyProperty="studno" resultType="int">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
-	<insert id="insertHobby" parameterType="chapter08.HobbyVO">
+	<insert id="insertHobby" parameterType="chapter07.HobbyVO">
 		INSERT INTO hobby (studno, name)
 		VALUES (#{studno}, #{name})
 	</insert>
