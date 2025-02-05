@@ -3,7 +3,10 @@ import Header from './component/Header';
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList';
 import { useRef, useReducer, useCallback } from 'react';
-import TestComp from './component/TestComp';
+import React from 'react';
+// import TestComp from './component/TestComp';
+
+// const TodoContext = React.createContext();
 
 const mockTodo = [
   {
@@ -42,7 +45,7 @@ function reducer(state, action) {
       );
     }
     case "DELETE": {
-      return state.filter((it) => it.id !== action.targetId); 
+      return state.filter((it) => it.id !== action.targetId);
     }
     default:
       return state;
@@ -83,12 +86,16 @@ function App() {
 
   return (
     <div className="App">
-      <TestComp />
+      {/* <TestComp /> */}
       <Header />
-      <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+      <TodoContext.Provider value={{todo, onCreate, onUpdate, onDelete}}>
+        <TodoEditor />
+        <TodoList />
+      </TodoContext.Provider>
     </div>
   );
 }
+
+export const TodoContext = React.createContext();
 
 export default App;

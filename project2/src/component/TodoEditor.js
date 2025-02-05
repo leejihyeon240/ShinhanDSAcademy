@@ -1,11 +1,13 @@
+import { TodoContext } from "../App";
 import "./TodoEditor.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 
 // props
 // {} 쓰면 : 구조분해할당 --> 매개 변수명과 객체의 속성명이 일치하는 값 대입
 // 안 쓰면 : 객체 --> onCreate = {onCreate:함수}
 
-const TodoEditor = ({ onCreate }) => {
+const TodoEditor = () => {
+    const { onCreate } = useContext(TodoContext);
     const inputRef = useRef();
     const [content, setContent] = useState('');
     const onChangeContent = (e) => {
