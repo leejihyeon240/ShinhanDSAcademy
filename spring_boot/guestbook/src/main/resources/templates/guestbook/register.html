@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<th:block th:replace="~{/layout/basic :: setContents(~{this::contents})}">
+    <th:block th:fragment="content">
+        <h1 class="mt-4"> GuestBook Page</h1>
+        <form th:action="@{/guestbook/register}" method="post">
+            <div class="form-group">
+
+            </div>
+        </form>
+
+    </th:block>
+
+</th:block>
