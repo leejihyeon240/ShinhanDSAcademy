@@ -13,18 +13,19 @@ import java.util.stream.IntStream;
 public class PageResultDTO<DTO, EN> {
     private List<DTO> dtoList; // 리스트<GuestbookDTO> 타입 필드
 
-    private int totalPages; // 총 페이지 수
+    private int totalPage; // 총페이지 수
     private int page; // 현재 페이지
-    private int size; // 페이지당 개수
+    private int size; // 페이지당개수
     private int start, end; // 시작번호, 끝번호
-    private boolean prev, next; // 이전 페이지, 다음 페이지 여부
-    private List<Integer> pageList; // 페이지 번호들이 담긴 리스트
+    private boolean prev, next; // 이전페이지, 다음페이지 여부
+    private List<Integer> pageList; // 페이지번호들이 담긴 리스트
+
 
     public PageResultDTO(Page<EN> result, Function<EN, DTO> fn) {
-        // result(JPA에서 조회한 결과 객체)의 map(람다식) -> 리스트로 변화 리턴
+        // result(JPA에서 조회한 결과 객체)의 map(람다식) -> 리스트로변화 리턴
         dtoList = result.stream().map(fn).collect(Collectors.toList());
 
-        totalPages = result.getTotalPages();
+        totalPage = result.getTotalPages();
         makePageList(result.getPageable());
     }
 
@@ -33,14 +34,11 @@ public class PageResultDTO<DTO, EN> {
         this.size = pageable.getPageSize();
 
         int tempEnd = (int)(Math.ceil(page/10.0)) * 10;
-
-        start = tempEnd - 9;
-
+        start = tempEnd -9;
         prev = start > 1;
-        end = totalPages > tempEnd ? tempEnd : totalPages;
-        next = totalPages > tempEnd;
+        end = totalPage > tempEnd ? tempEnd : totalPage;
+        next = totalPage > tempEnd;
 
         pageList = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
-
     }
 }
