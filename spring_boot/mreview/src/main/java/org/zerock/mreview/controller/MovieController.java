@@ -3,6 +3,7 @@ package org.zerock.mreview.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,5 +38,11 @@ public class MovieController {
     @GetMapping("/list")
     public void list(PageRequestDTO pageRequestDTO, Model model) {
         model.addAttribute("result", movieService.getList(pageRequestDTO));
+    }
+
+    @GetMapping({"/read","/modify"})
+    public void read(long mno, @ModelAttribute("requestDTO") PageRequestDTO requestDTO, Model model) {
+        MovieDTO movieDTO = movieService.getMovie(mno);
+        model.addAttribute("dto", movieDTO);
     }
 }
