@@ -94,6 +94,11 @@ public class UploadController {
         try {
             String srcFileName = URLDecoder.decode(fileName,"UTF-8");
             File file = new File(uploadPath + File.separator + srcFileName);
+
+            if (file.length() == 1) {
+                file = new File(file.getParent(), file.getName().substring(2));
+            }
+
             HttpHeaders headers = new HttpHeaders();
             headers.add("Content-Type", Files.probeContentType(file.toPath()));
             result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), headers, HttpStatus.OK);
