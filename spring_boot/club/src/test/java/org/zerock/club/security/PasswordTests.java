@@ -7,22 +7,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootTest
 public class PasswordTests {
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Test
     public void testEncode() {
         String password = "1111";
-
         String enPw = passwordEncoder.encode(password);
-
-        System.out.println("enPw = " + enPw);
-
+        System.out.println("enPw:"+enPw);
         boolean matchResult = passwordEncoder.matches(password, enPw);
+        System.out.println("matchResult:"+matchResult);
+        // $2a$10$KSH2/tEHTAZ9UxaBm3QRAuOaZqr5j7QyNa0vAfKrpY.lAqPMvrcHe
 
-        System.out.println("matchResult = " + matchResult);
-
-        // $2a$10$IgBlkOmAsIXkkZ7zeTPAaealZ20Mi1BkJPHLGpyrv2ebQy83QvghK
     }
 }

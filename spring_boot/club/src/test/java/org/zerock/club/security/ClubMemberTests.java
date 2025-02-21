@@ -13,7 +13,6 @@ import java.util.stream.IntStream;
 
 @SpringBootTest
 public class ClubMemberTests {
-
     @Autowired
     private ClubMemberRepository repository;
 
@@ -24,26 +23,24 @@ public class ClubMemberTests {
 
     @Test
     public void insertDummies() {
-        IntStream.rangeClosed(1, 100).forEach( i -> {
+        IntStream.rangeClosed(1,100).forEach(i->{
             ClubMember clubMember = ClubMember.builder()
                     .email("user"+i+"@zerock.org")
-                    .name("사용자" + i)
+                    .name("사용자"+i)
                     .fromSocial(false)
                     .password(passwordEncoder.encode("1111"))
                     .build();
-
+            // 1~80 : USER
             clubMember.addMemberRole(ClubMemberRole.USER);
-
-            if(i > 80) {
+            if (i > 80) { // 81~90 : MANAGER
                 clubMember.addMemberRole(ClubMemberRole.MANAGER);
             }
-
-            if(i > 90) {
+            if (i > 90) { // 91~100 : ADMIN
                 clubMember.addMemberRole(ClubMemberRole.ADMIN);
             }
-
             repository.save(clubMember);
         });
+
     }
 
     @Test
