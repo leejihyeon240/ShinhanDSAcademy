@@ -12,6 +12,7 @@ const callToken = () => {
       })
       .then((response) => {
         console.log(response);
+        localStorage.setItem("accessToken", response.data.accessToken);
         if (response.status === 401 || response.status === 403) {
           alert("인증 정보가 올바르지 않습니다.");
         }
