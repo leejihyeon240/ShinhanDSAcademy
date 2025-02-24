@@ -49,4 +49,10 @@ public class ClubMemberTests {
         ClubMember clubMember = result.get();
         System.out.println(clubMember);
     }
+
+    @Test
+    public void testValidate() throws Exception {
+        String email = "user1@zerock.org";
+        String str = jwtc
+    }
 }
